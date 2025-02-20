@@ -6,7 +6,7 @@
  Yelp, founded in 2004, is a major online review platform that influences consumer decisions by allowing users to rate and review businesses. Research suggests that consumers value reviews under certain conditions and rely on cues like reviewer expertise, consistency, and overall rating trends to assess credibility [(Fogel & Zachariah, 2017)](https://doi.org/10.4067/S0718-18762017000100005). Additionally, reviews are perceived as more trustworthy when they align with majority opinions and come from experienced sources, such as Yelp Elite users, whose status signals credibility and influence (Lim & Van Der Heide, 2015). These findings highlight how Yelp's user-generated content shapes consumer trust and business reputations. In this project we aim to analyze different types of user-generated content (reviews) and the different impact it has on businesses. 
 
 ## Research Question
-In this section we provide the research questions for this project. For the motivation behind the questions we refer you to the report.
+In this section we provide the research questions for this project. For the motivation behind the questions we refer you to the report. <br>
 __Is there a correlation between Yelp user type and the average rating of a business?__
 
  ### Sub Questions
@@ -71,6 +71,7 @@ Once more code will be created, a diagram that illustrates the repository struct
 ├── raw data
 │   ├── load-packages.R
 │   ├── download-data.R
+│   ├── data-cleaning.R
 │   ├── final_data.R
 ├── reporting
 │   ├── report.Rmd
@@ -79,33 +80,45 @@ Once more code will be created, a diagram that illustrates the repository struct
 │   ├── analysis
 │   │   ├── analysis.R
 │   ├── data-preparation
-│   │   ├── data-cleaning.R
 │   │   ├── Data_exploration.Rmd
 │   │   ├── Data-preparation.R
 
 ## Dependencies 
-
-In order to run the code for this project the following packages should be installed and loaded:
-| Packages to be loaded |
-|:-------------------|
-|googledrive|
-|dplyr|
-|readr|
-|data.table|
-|httr|
-|ggplot2|
-|tidyverse|
-|tinytex|
-|knitr|
+In order to run the code for this project the following packages should be installed and loaded in R. To install the packages, please run this code:
+```{r}
+install.packages("googledrive")
+install.packages("dplyr")
+install.packages("readr")
+install.packages("data.table")
+install.packages("httr")
+install.packages("ggplot2")
+install.packages("tidyverse")
+install.packages("tinytex")
+install.packages("knitr")
+```
+Then to load the packages, please run this code:
+```{r}
+library("googledrive")
+library("dplyr")
+library("readr")
+library("data.table")
+library("httr")
+library("ggplot2")
+library("tidyverse")
+library("tinytex")
+library("knitr")
+```
 
 ## Running Instructions 
 For this workflow to properly work, the following steps should be followed:
 _Please note that step 2 and 3 take a lot of time and storage. Thses steps create the final data set used for this project and can be skipped since the final data set will also be directly loaded in step 4._
-1. Run load-packages.R 
+1. Run load-packages.R OR run the code in the Dependencies section.
 2. Run download-data.R (optional)
 3. Run data-cleaning.R (optional)
 4. Run final-data.R to load the data set that will be used for the project. 
 5. In order to get to know the data set, please run the Data-exploration.Rmd file. 
+6. Next, to prepare the data for the research run Data-preparation.R 
+7. 
 
 ## About 
 
