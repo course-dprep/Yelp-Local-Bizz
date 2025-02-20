@@ -8,7 +8,7 @@
 ## Motivation for the project
 As consumer perceptions evolve, businesses increasingly rely on online reviews as a key factor in shaping their reputation and success. Research suggests that online ratings can serve as a substitute for traditional reputation signals [(Luca, 2016)](https://doi.org/10.2139/ssrn.1928601), influencing consumer trust and purchasing decisions. Since different consumer segments interpret reviews in distinct ways, these ratings can either reinforce or reshape a business’s reputation. Understanding these dynamics is crucial for business owners seeking to manage their online presence effectively.
 
-To further understand these patterns, this study utilizes the Yelp dataset, an extensive collection of real-world business reviews, to analyze consumer behavior and rating dynamics. With millions of reviews across various industries and locations, Yelp provides a valuable opportunity to examine how customer feedback influences business reputation. Research indicates that ratings not only reflect individual experiences but are also shaped by the influence of other users [(Moe & Trusov, 2011)](https://doi.org/10.1509/jmkr.48.3.444), highlighting the social nature of online reviews. Additionally, Yelp’s inclusion of user characteristics, such as elite status, allows for an in-depth exploration of how different reviewer types impact business ratings.
+To further understand these patterns, this study utilizes the Yelp data set, an extensive collection of real-world business reviews, to analyze consumer behavior and rating dynamics. With millions of reviews across various industries and locations, Yelp provides a valuable opportunity to examine how customer feedback influences business reputation. Research indicates that ratings not only reflect individual experiences but are also shaped by the influence of other users [(Moe & Trusov, 2011)](https://doi.org/10.1509/jmkr.48.3.444), highlighting the social nature of online reviews. Additionally, Yelp’s inclusion of user characteristics, such as elite status, allows for an in-depth exploration of how different reviewer types impact business ratings.
 
 ## Research Question
 Elite Yelp users are a select group of active contributors recognized for their high-quality, detailed, and thoughtful reviews. Their credibility stems from their experience, consistency, and perceived influence on other users, which may lead businesses to view them as more discerning critics compared to regular users. As a result, elite users' reviews may carry more weight in shaping consumer perception and overall business ratings. If elite users tend to be more critical, their presence could lower average ratings, whereas if they are more generous or have higher engagement standards, they might elevate them. Understanding whether businesses with elite user reviews receive higher ratings and how elite reviewers shape rating dynamics is crucial for evaluating potential biases, user influence, and the overall trustworthiness of Yelp as a review platform. Investigating these factors provides insights into consumer trust and business reputation, contributing to a deeper understanding of how elite users impact Yelp’s rating ecosystem. Therefore, we define our research question as follows: <br>
@@ -44,9 +44,9 @@ To simplify the process above, we have created an R script that automatically do
 
 __Note__: When running the code above, you will be required to authenticate your account via Google. Please enter 1 in the console to do so. This needs to be done due to the size of the file exceeding 100MB, which then enables the virus scanner on files uploaded through Google Drive. Once this is finished, the file will be loaded locally on your device. 
 
-Given the substantial size of the files and the need for a manageable dataset for detailed analysis, we have selected a reduced sample of 10,000 observations from the Yelp user dataset. This sample size enables us to conduct thorough statistical analyses while ensuring efficiency. Future studies can expand on this research by analyzing the full Yelp user dataset, which may help validate our findings on a larger scale and uncover further insights into the influence of elite users on business ratings. 
+Given the substantial size of the files and the need for a manageable data set for detailed analysis, we have selected a reduced sample of 10,000 observations from the Yelp user data set. This sample size enables us to conduct thorough statistical analyses while ensuring efficiency. Future studies can expand on this research by analyzing the full Yelp user data set, which may help validate our findings on a larger scale and uncover further insights into the influence of elite users on business ratings. 
 
-The created dataset which will be used for the rest of this project is called "yelp_data" and contains 32.650 rows each with a unique review. <br>
+The created data set which will be used for the rest of this project is called "yelp_data" and contains 32.650 rows each with a unique review. <br>
 - Link to final data set: [Link](https://github.com/course-dprep/team-project-spring-2025-team-9/blob/main/data/final-data.R)
 
 ### Variable Types
@@ -144,53 +144,7 @@ For the __academic community__, this study contributes to the broader literature
 ### Future Analysis
 One limitation of this study is that it categorizes businesses into only two broad groups: restaurants and non-restaurants. While this approach provides a general understanding of how reviewer type influences ratings across different business types, it overlooks potential nuances within more specific industries. For example, customer expectations and rating behaviors may differ significantly between hotels, rental services, beauty salons, or fitness centers. A more granular analysis of distinct business categories could offer deeper insights into how elite and non-elite reviewers interact with different types of businesses.  
 
-Additionally, due to the immense size of the dataset, this study analyzes a reduced sample of 10,000 Yelp users rather than the full dataset. While this sample allows for computational efficiency and meaningful statistical analysis, it may not fully capture the broader trends present in the complete dataset. Future research could expand this work by utilizing the entire Yelp dataset, ensuring a more representative analysis and potentially uncovering additional patterns in reviewer behavior.
-
-## Repository Overview 
-
-Once more code will be created, a diagram that illustrates the repository structure will be added here.
-- Repository
-  - data
-    - load-packages.R
-    - download-data.R
-    - final_data.R
-  - reporting
-    - report.Rmd
-    - start_app.R
-  - src
-    - analysis
-      - analysis.R
-    - data-preparation 
-      - data-cleaning.R
-      - Data_exploration.Rmd
-  - .gitignore
-  - README.md 
-  - makefile
-
-
-## Dependencies 
-
-In order to run the code for this project the following packages should be installed and loaded:
-| Packages to be loaded |
-|:-------------------|
-|googledrive|
-|dplyr|
-|readr|
-|data.table|
-|httr|
-|ggplot2|
-|tidyverse|
-|tinytex|
-|knitr|
-
-## Running Instructions 
-For this workflow to properly work, the following steps should be followed:
-_Please note that step 2 and 3 take a lot of time and storage. Thses steps create the final data set used for this project and can be skipped since the final data set will also be directly loaded in step 4._
-1. Run load-packages.R 
-2. Run download-data.R (optional)
-3. Run data-cleaning.R (optional)
-4. Run final-data.R to load the data set that will be used for the project. 
-5. In order to get to know the data set, please run the Data-exploration.Rmd file. 
+Additionally, due to the immense size of the data set, this study analyzes a reduced sample of 10,000 Yelp users rather than the full data set. While this sample allows for computational efficiency and meaningful statistical analysis, it may not fully capture the broader trends present in the complete data set. Future research could expand this work by utilizing the entire Yelp data set, ensuring a more representative analysis and potentially uncovering additional patterns in reviewer behavior.
 
 ## About 
 
