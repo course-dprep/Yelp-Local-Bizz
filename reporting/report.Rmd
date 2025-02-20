@@ -13,12 +13,12 @@ To further understand these patterns, this study utilizes the Yelp dataset, an e
 ## Research Question
 Elite Yelp users are a select group of active contributors recognized for their high-quality, detailed, and thoughtful reviews. Their credibility stems from their experience, consistency, and perceived influence on other users, which may lead businesses to view them as more discerning critics compared to regular users. As a result, elite users' reviews may carry more weight in shaping consumer perception and overall business ratings. If elite users tend to be more critical, their presence could lower average ratings, whereas if they are more generous or have higher engagement standards, they might elevate them. Understanding whether businesses with elite user reviews receive higher ratings and how elite reviewers shape rating dynamics is crucial for evaluating potential biases, user influence, and the overall trustworthiness of Yelp as a review platform. Investigating these factors provides insights into consumer trust and business reputation, contributing to a deeper understanding of how elite users impact Yelp’s rating ecosystem. Therefore, we define our research question as follows: <br>
 
-__Is there a correlation between Yelp user type and the average rating of a business?__
+__Is there a correlation between Yelp user type and the rating given to a business?__
 
 ### Sub Questions
 While elite users are already recognized as experienced and credible reviewers, there is noticeable variation in their fanbase size. Some elite users attract significantly more followers than others, which raises the question of whether a larger fanbase amplifies their influence on review ratings and consumer decision-making. By analyzing Yelp data, we seek to determine whether the number of fans an elite reviewer has correlates with greater influence, potentially affecting business ratings. This brings us to the first subquestion: <br>
 
-__Does the number of fans an elite Yelp user has moderate the relationship between user type and the average rating a business receives?__
+__Does the number of fans an elite Yelp user has moderate the relationship between user type and the rating a business receives from this user?__
 
 However, the impact of the elite users may not be similar across all business categories. Yelp is mostly known for reviewing restaurants. As will be shown in the data exploration phase later, this category is used most often. Given this dominance, it is beneficial to investigate whether the influence of elite users on the average rating differs depending on the business type (restaurant vs. non-restaurant). This leads to our second sub question: <br>
 
@@ -51,22 +51,41 @@ The created dataset which will be used for the rest of this project is called "y
 
 ### Variable Types
 The data set has 14 columns, their meaning can be found in the following table:
-| Variable | Data Type | Explanation |
-|----------|----------|----------|
-| fans | Numeric integer | The number of fans a user has. |
-| user_id| Character string | Unique, 22 character long ID that defines which user wrote the review. |
-| review_count_users | Numeric float | Number that represents the amount of reviews the user wrote in total. |
-| elite | Numeric integer | Long integer showing all the years a user was elite. If user never was elite it shows NA. |
-| average_stars | Numeric float | Average rating of all reviews a user has given in the past. |
-| review_id | Character string | Unique, 22 character long ID that defines the review. |
-| business_id | Character string | Unique, 22 character long ID that defines the business for which the review was given. |
-| stars_users | Numeric integer | Star rating that was given by the user with the review. |
-| categories | Array of strings | Array of strings which includes the categories a business has. |
-| attributes | Object | Business attributes to logic values. Please note: some attributes might be objects of attributes to logic values again. | 
-| name | Character string | Business' name. |
-| stars_business | Numeric float | Averge stars a business got from the reviews they have received. The amount of stars are rounded to half-stars. |
-| review_count_business | Numeric integer | The amount of reviews a business has gotten in total. |
-| elite_binary | Binary | A binary telling whether the user has ever, at least once, had the elite status before (1) or not (0). |
+```{r, echo=FALSE}
+library(knitr)
+library(kableExtra)
+# Create a data frame
+df <- data.frame(
+  Variable = c("fans", "user_id", "review_count_users", "elite", "average_stars", 
+               "review_id", "business_id", "stars_users", "categories", "attributes", 
+               "name", "stars_business", "review_count_business", "elite_binary"),
+  Data_Type = c("Numeric integer", "Character string", "Numeric float", "Numeric integer", 
+                "Numeric float", "Character string", "Character string", "Numeric integer", 
+                "Array of strings", "Object", "Character string", "Numeric float", 
+                "Numeric integer", "Binary"),
+  Explanation = c(
+    "The number of fans a user has.",
+    "Unique, 22 character long ID that defines which user wrote the review.",
+    "Number that represents the amount of reviews the user wrote in total.",
+    "Long integer showing all the years a user was elite. If user never was elite it shows NA.",
+    "Average rating of all reviews a user has given in the past.",
+    "Unique, 22 character long ID that defines the review.",
+    "Unique, 22 character long ID that defines the business for which the review was given.",
+    "Star rating that was given by the user with the review.",
+    "Array of strings which includes the categories a business has.",
+    "Business attributes to logic values. Some attributes might be objects of attributes to logic values again.",
+    "Business' name.",
+    "Average stars a business got from the reviews they have received. The amount of stars are rounded to half-stars.",
+    "The amount of reviews a business has gotten in total.",
+    "A binary telling whether the user has ever, at least once, had the elite status before (1) or not (0)."
+  )
+)
+
+# Print the table
+df %>%
+  kbl(format = "html", caption = "Variable Types Table") %>%
+  kable_styling(full_width = FALSE, bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
 
 ## Research Method
 ### Conceptual Model
