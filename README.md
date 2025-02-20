@@ -7,10 +7,10 @@
 
 ## Research Question
 In this section we provide the research questions for this project. For the motivation behind the questions we refer you to the report. <br>
-__Is there a correlation between Yelp user type and the average rating of a business?__
+__Is there a correlation between Yelp user type and the rating given to a business?__
 
  ### Sub Questions
-1. __Does the number of fans an elite Yelp user has moderate the relationship between user type and the average rating a business receives?__
+1. __Does the number of fans an elite Yelp user has moderate the relationship between user type and the rating a business receives from this user?__
 2. __Does the relationship differ when analyzing only restaurants compared to non-restaurant businesses?__
 
 ## Data set variables
