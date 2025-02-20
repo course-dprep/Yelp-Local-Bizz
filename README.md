@@ -65,6 +65,7 @@ Additionally, due to the immense size of the dataset, this study analyzes a redu
 ## Repository Overview 
 
 Once more code will be created, a diagram that illustrates the repository structure will be added here.
+```{r}
 ├── README.md
 ├── makefile
 ├── .gitignore
@@ -82,6 +83,7 @@ Once more code will be created, a diagram that illustrates the repository struct
 │   ├── data-preparation
 │   │   ├── Data_exploration.Rmd
 │   │   ├── Data-preparation.R
+```
 
 ## Dependencies 
 In order to run the code for this project the following packages should be installed and loaded in R. To install the packages, please run this code:
