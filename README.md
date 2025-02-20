@@ -97,18 +97,22 @@ install.packages("ggplot2")
 install.packages("tidyverse")
 install.packages("tinytex")
 install.packages("knitr")
+install.packages("car")
+install.packages("effsize")
 ```
 Then to load the packages, please run this code:
 ```{r}
-library("googledrive")
-library("dplyr")
-library("readr")
-library("data.table")
-library("httr")
-library("ggplot2")
-library("tidyverse")
-library("tinytex")
-library("knitr")
+library(googledrive)
+library(dplyr)
+library(readr)
+library(data.table)
+library(httr)
+library(ggplot2)
+library(tidyverse)
+library(tinytex)
+library(knitr)
+library(car)
+library(effsize)
 ```
 
 ## Running Instructions 
