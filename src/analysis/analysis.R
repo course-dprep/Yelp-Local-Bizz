@@ -9,7 +9,7 @@ elite_summary <- yelp_data %>%
     median_elite_summary = median(stars_business, na.rm = TRUE)
   )
 
-print(elite_summary)
+print(elite_summary) 
 
 ## Visualizing the distribution of stars_business by elite_binary
 ### Ensuring elite_binary is a factor
