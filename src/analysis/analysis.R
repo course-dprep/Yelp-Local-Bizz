@@ -119,17 +119,17 @@ ggplot(yelp_data, aes(x = fan_category, y = stars_users, color = elite_status, g
 
 # Research Question 3
 ## Split restaurant vs non-restaurant in binary values
-yelp_data$restaurant_binary <- ifelse(grepl("Restaurant", yelp_data$categories, ignore.case = TRUE), 1, 0)
-yelp_data$restaurant_category <- ifelse(grepl("Restaurant", yelp_data$categories, ignore.case = TRUE), 
+yelp_data$business_binary <- ifelse(grepl("Restaurant", yelp_data$categories, ignore.case = TRUE), 1, 0)
+yelp_data$business_category <- ifelse(grepl("Restaurant", yelp_data$categories, ignore.case = TRUE), 
                                         "Restaurant", "Non-Restaurant")
-yelp_data$restaurant_category <- as.factor(yelp_data$restaurant_category)
+yelp_data$business_category <- as.factor(yelp_data$business_category)
 
 ## ANOVA
-anova_model <- aov(stars_users ~ elite_status * restaurant_category, data = yelp_data)
+anova_model <- aov(stars_users ~ elite_status * business_category, data = yelp_data)
 summary(anova_model)
 
 anova_results <- data.frame(
-  Factor = c("Elite Status", "Restaurant Category", "Interaction (Elite × Restaurant)", "Residuals"),
+  Factor = c("Elite Status", "Business Category", "Interaction (Elite × Restaurant)", "Residuals"),
   Df = c(1, 1, 1, 32646),
   Sum_Sq = c(599, 155, 123, 72022),
   Mean_Sq = c(599.0, 155.2, 123.4, 2.2),
@@ -140,7 +140,7 @@ anova_results <- data.frame(
 kable(anova_results, caption = "Two-Way ANOVA Results: Effect of Elite Status & Business Category on User Ratings")
 
 ## Plot user ratings by elite status and business category
-ggplot(yelp_data, aes(x = elite_status, y = stars_users, fill = restaurant_category)) +
+ggplot(yelp_data, aes(x = elite_status, y = stars_users, fill = business_category)) +
   geom_boxplot(alpha = 0.6) +
   labs(title = "User Ratings by Elite Status and Business Category",
        x = "Elite Status",
@@ -148,4 +148,3 @@ ggplot(yelp_data, aes(x = elite_status, y = stars_users, fill = restaurant_categ
        fill = "Business Category") +
   scale_fill_manual(values = c("Non-Restaurant" = "lightblue", "Restaurant" = "lightpink")) +
   theme_minimal()
-
