@@ -12,13 +12,6 @@ elite_summary <- yelp_data %>%
 print(elite_summary) 
 
 ## Visualizing the distribution of stars_business by elite_binary
-### Ensuring elite_binary is a factor
-yelp_data$elite_binary <- as.factor(yelp_data$elite_binary)
-
-### Creating a new column to change label from binary numbers to elite vs non-elite
-yelp_data$elite_status <- ifelse(yelp_data$elite_binary == "1", "Elite", "Non-Elite")
-yelp_data$elite_status <- as.factor(yelp_data$elite_status)
-
 ### Plot average_stars (average stars (cumulative) given to businesses) to elite_status
 ggplot(yelp_data, aes(x = elite_status, y = average_stars, fill = elite_status)) +
   geom_boxplot(alpha = 0.6, outlier.color = "black", outlier.shape = 16) +
@@ -39,8 +32,8 @@ ggplot(yelp_data, aes(x = stars_users, fill = elite_status)) +
   scale_fill_manual(values = c("Non-Elite" = "lightpink", "Elite" = "lightblue"))
 
 ## Simple linear regression (t-test) for the relationship between elite_binary and stars_business
-t_test_1 <- t.test(stars_users ~ elite_binary, data = yelp_data, var.equal = TRUE)
-print(t_test_1)
+t_test_result <- t.test(stars_users ~ elite_binary, data = yelp_data, var.equal = TRUE)
+print(t_test_result)
 
 model_1 <- lm(stars_users ~ elite_binary, data = yelp_data)
 summary(model_1) # p-value: < 2.2e-16, this means that the relationship between elite status and the avg rating a business gets is statistically significant. this suggests that elite and non-elite users rate businesses differently, and the difference is unlikely by random chance. 
