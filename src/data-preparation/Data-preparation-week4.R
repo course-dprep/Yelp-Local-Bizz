@@ -130,7 +130,7 @@ ggplot(non_restaurant_data, aes(x = fans, y = stars_users)) +
 ###elite-fan versus stars_users
 ggplot(non_restaurant_data, aes(x = elite_fan, y = stars_users)) +
   geom_point(color = "green", alpha = 0.5) +
-  geom_smooth(method = "lm", color = "red") +
+  geom_smooth(method = "lm", color = "blue") +
   labs(title = "Elite Fan vs Stars Users",
        x = "Elite Fan",
        y = "Stars Users") +
