@@ -10,7 +10,13 @@ yelp_RQ1<-yelp_RQ1 %>%
   group_by (elite_binary) %>% 
   mutate (avg_rating= mean(stars_business))
 
-##
+## number of fans an elite reviewer has correlates with greater influence in business ratings.
+#select relevant variables
+yelp_RQ2 <- yelp_data %>% select(stars_business, elite_binary,fan_category)
+#filter observation with elite users
+yelp_RQ2 <- yelp_RQ2 %>% filter(elite_binary==1)
+#average rating of business for every fan category
+yelp_RQ2 <- yelp_RQ2 %>% group_by(fan_category)  %>% mutate(avg_rating=mean(stars_business))
 
 
 
