@@ -87,3 +87,51 @@ ggplot(restaurant_data, aes(x = elite_fan, y = stars_users)) +
        x = "Elite Fan",
        y = "Stars Users") +
   theme_minimal()
+
+
+#creating data for non-restaurant category
+non_restaurant_data = yelp_data %>%
+  filter(!grepl("restaurant", categories, ignore.case = TRUE))
+
+table_user_type2 <- non_restaurant_data %>% group_by(elite_binary) %>% summarise(stars_users_ave=mean(stars_users))
+t_test_result2 <- t.test(stars_users ~ elite_binary, data = non_restaurant_data,
+                        var.equal = TRUE)
+print(t_test_result2)
+
+#design the model(interaction elite & fans)
+
+library(data.table)
+setDT(non_restaurant_data)
+non_restaurant_data=non_restaurant_data[, elite_fan := as.numeric(elite_binary) * fans]
+View(non_restaurant_data)
+
+#fit model
+regression2=lm(stars_users ~ elite_binary+fans+elite_fan, non_restaurant_data);summary(regression2)
+
+##visualization
+###Predicted vs Actual
+non_restaurant_data$predicted = predict(regression2)
+ggplot(non_restaurant_data, aes(x = predicted, y = stars_users)) +
+  geom_point(color = "blue", alpha = 0.5) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(title = "Regression Model: Predicted vs Actual",
+       x = "Predicted Stars",
+       y = "Actual Stars") +
+  theme_minimal()
+
+###fan versus stars_users
+ggplot(non_restaurant_data, aes(x = fans, y = stars_users)) +
+  geom_point(color = "blue", alpha = 0.5) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(title = "Fans vs Stars Users",
+       x = "Fans",
+       y = "Stars Users") +
+  theme_minimal()
+###elite-fan versus stars_users
+ggplot(non_restaurant_data, aes(x = elite_fan, y = stars_users)) +
+  geom_point(color = "green", alpha = 0.5) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(title = "Elite Fan vs Stars Users",
+       x = "Elite Fan",
+       y = "Stars Users") +
+  theme_minimal()
