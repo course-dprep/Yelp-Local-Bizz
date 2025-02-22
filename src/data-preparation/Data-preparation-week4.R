@@ -50,11 +50,13 @@ t_test_result <- t.test(stars_users ~ elite_binary, data = restaurant_data,
                         var.equal = TRUE)
 print(t_test_result)
 
-#design the model(elite/non-elite to average business.stars)
+#design the model(interaction elite & fans)
 
-table_regresstion= restaurant_data %>% group_by(elite_binary) %>% mutate(stars_business_ave= mean(stars_business))
-table_regresstion
-mean(restaurant_data$stars_business, na.rm = TRUE)
+library(data.table)
+setDT(restaurant_data)
+restaurant_data=restaurant_data[, elite_fan := as.numeric(elite_binary) * fans]
+View(restaurant_data)
 
-
-
+#fit model
+regresssion_1=lm(stars_users ~ elite_binary+fans+elite_fans, restaurant_data)
+regresssion_1
