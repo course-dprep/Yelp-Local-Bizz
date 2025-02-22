@@ -58,5 +58,32 @@ restaurant_data=restaurant_data[, elite_fan := as.numeric(elite_binary) * fans]
 View(restaurant_data)
 
 #fit model
-regresssion_1=lm(stars_users ~ elite_binary+fans+elite_fans, restaurant_data)
-regresssion_1
+regression=lm(stars_users ~ elite_binary+fans+elite_fan, restaurant_data);summary(regression)
+
+##visualization
+###Predicted vs Actual
+restaurant_data$predicted = predict(regression)
+ggplot(restaurant_data, aes(x = predicted, y = stars_users)) +
+  geom_point(color = "blue", alpha = 0.5) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(title = "Regression Model: Predicted vs Actual",
+       x = "Predicted Stars",
+       y = "Actual Stars") +
+  theme_minimal()
+
+###fan versus stars_users
+ggplot(restaurant_data, aes(x = fans, y = stars_users)) +
+  geom_point(color = "blue", alpha = 0.5) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(title = "Fans vs Stars Users",
+       x = "Fans",
+       y = "Stars Users") +
+  theme_minimal()
+###elite-fan versus stars_users
+ggplot(restaurant_data, aes(x = elite_fan, y = stars_users)) +
+  geom_point(color = "green", alpha = 0.5) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(title = "Elite Fan vs Stars Users",
+       x = "Elite Fan",
+       y = "Stars Users") +
+  theme_minimal()
