@@ -122,8 +122,8 @@ _Please note that step 2 and 3 take a lot of time and storage. Thses steps creat
 2. Run download-data.R (optional)
 3. Run data-cleaning.R (optional)
 4. Run final-data.R to load the data set that will be used for the project. 
-5. In order to get to know the data set, please run the Data-exploration.Rmd file. 
-6. Next, to prepare the data for the research run Data-preparation.R 
+5. Next, to prepare the data for the exploration and research run Data-preparation.R 
+6. In order to get to know the data set, please run the Data-exploration.Rmd file. 
 7. For the data analysis used to answer the research questions. Please run analysis.R
 
 ## About 

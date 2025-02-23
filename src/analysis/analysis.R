@@ -111,12 +111,6 @@ ggplot(yelp_data, aes(x = fan_category, y = stars_users, color = elite_status, g
   scale_color_manual(values = c("Elite" = "lightblue", "Non-Elite" = "lightpink"))
 
 # Research Question 3
-## Split restaurant vs non-restaurant in binary values
-yelp_data$business_binary <- ifelse(grepl("Restaurant", yelp_data$categories, ignore.case = TRUE), 1, 0)
-yelp_data$business_category <- ifelse(grepl("Restaurant", yelp_data$categories, ignore.case = TRUE), 
-                                        "Restaurant", "Non-Restaurant")
-yelp_data$business_category <- as.factor(yelp_data$business_category)
-
 ## ANOVA
 anova_model <- aov(stars_users ~ elite_status * business_category, data = yelp_data)
 summary(anova_model)

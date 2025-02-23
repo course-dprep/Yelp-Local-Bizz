@@ -41,17 +41,6 @@ percentile_table <- data.frame(
 kable(percentile_table, caption = "Percentile Thresholds and Cumulative User Percentage")
 ```
 
-Lastly, we create a new column to classify users into different percentile groups based on their number of fans. This allows for a structured segmentation of users based on their influence.
-```{r}
-yelp_data$fan_category <- cut(
-  yelp_data$fans,
-  breaks = c(-Inf, percentiles[1], percentiles[2], percentiles[3], percentiles[4], Inf),
-  labels = c(1, 2, 3, 4, 5), # Assigns numeric labels for each group
-  right = TRUE
-)
-
-yelp_data$fan_category <- as.numeric(as.character(yelp_data$fan_category))
-```
 
 In the column "categories", we are able to see that the column has characters in it. However, as we explore the data, this value may differ by row. For an overview of what the column "categories" consist of, we look at all the unique values.
 ```{r}
@@ -63,15 +52,8 @@ category_counts <- yelp_data %>%
 print(category_counts)
 ```
 
-Evidently, this column has 1070 different values, with the one appearing most being "Restaurants." Hence, we decided to create two different data frames: (1) Restaurants, and (2) Businesses that are not restaurants. This is done to answer our research question later on.
+Evidently, this column has 1070 different values, with the one appearing most being "Restaurants." Hence, we have decided to create two different data frames: (1) Restaurants, and (2) Businesses that are not restaurants. This so we can answer our research question later on. This is done in the data-preparation file which you have already run. 
 ```{r}
-restaurant_data <- yelp_data %>%
-  filter(str_detect(categories, "Restaurant"))
-
-# Create a data set with rows that do NOT contain "Restaurant"
-non_restaurant_data <- yelp_data %>%
-  filter(!str_detect(categories, "Restaurant"))
-
 # Print the number of rows in each data set
 print(paste("Restaurant dataset rows:", nrow(restaurant_data)))
 print(paste("Non-Restaurant dataset rows:", nrow(non_restaurant_data)))
