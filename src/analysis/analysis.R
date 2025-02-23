@@ -86,7 +86,7 @@ print(cohen_100)
 
 cohen_table <- data.frame(
   Percentile = c("50%", "75%", "90%", "95%", "100%"),
-  Cohen_d = c(0.307, 0.213, 0.167, -0.284, 0.057),
+  Cohen_d = c(cohen_50$estimate, cohen_75$estimate, cohen_90$estimate, cohen_95$estimate, cohen_100$estimate),
   Effect_Size = c("Small", "Small", "Negligible", "Small (negative)", "Negligible"),
   Interpretation = c(
     "Elite users give slightly higher ratings than non-elite users",
@@ -113,15 +113,16 @@ ggplot(yelp_data, aes(x = fan_category, y = stars_users, color = elite_status, g
 # Research Question 3
 ## ANOVA
 anova_model <- aov(stars_users ~ elite_status * business_category, data = yelp_data)
-summary(anova_model)
+anova_summary <- summary(anova_model)[[1]]
+anova_summary
 
 anova_results <- data.frame(
   Factor = c("Elite Status", "Business Category", "Interaction (Elite × Restaurant)", "Residuals"),
-  Df = c(1, 1, 1, 32646),
-  Sum_Sq = c(599, 155, 123, 72022),
-  Mean_Sq = c(599.0, 155.2, 123.4, 2.2),
-  F_value = c(271.53, 70.37, 55.94, NA),
-  P_value = c("< 2e-16", "< 2e-16", "7.65e-14", NA)
+  Df = c(anova_summary$Df[1], anova_summary$Df[2], anova_summary$Df[3], anova_summary$Df[4]),
+  Sum_Sq = c(anova_summary$'Sum Sq'[1], anova_summary$'Sum Sq'[2], anova_summary$'Sum Sq'[3], anova_summary$'Sum Sq'[4]),
+  Mean_Sq = c(anova_summary$'Mean Sq'[1], anova_summary$'Mean Sq'[2], anova_summary$'Mean Sq'[3], anova_summary$'Mean Sq'[4]),
+  F_value = c(anova_summary$'F value'[1], anova_summary$'F value'[2], anova_summary$'F value'[3], NA),
+  P_value = c(anova_summary$'Pr(>F)'[1], anova_summary$'Pr(>F)'[2], anova_summary$'Pr(>F)'[3], NA)
 )
 
 kable(anova_results, caption = "Two-Way ANOVA Results: Effect of Elite Status & Business Category on User Ratings")
