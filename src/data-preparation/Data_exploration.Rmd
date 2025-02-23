@@ -1,0 +1,90 @@
+
+# Exploring the Data
+```{r}
+install.packages("tidyverse")
+install.packages("dplyr")
+library(tidyverse)
+library(dplyr)
+library(readr)
+install.packages("knitr")
+library(knitr)
+```
+
+We start by looking at a summary of our data set.
+```{r}
+summary(yelp_data)
+```
+We also take a glimpse.
+```{r}
+glimpse(yelp_data)
+```
+Next, we look at the first 5 rows of the data set.
+```{r}
+head(yelp_data,5)
+```
+
+Since our research question is about Elite users, we take a closer look at that column. 
+```{r}
+#view numbers of elite vs non-elite users
+yelp_data %>%
+  group_by(elite_binary) %>%
+  summarise(count = n())
+
+#percentage of elite vs non-elite users
+prop.table(table(yelp_data$elite_binary)) * 100
+```
+
+To further narrow down the users by its impact, we initially considered median and mean as potential thresholds. However, due to the skewed distribution of fans, where the median is 0 and the mean is inflated by a few high-fan users, a percentile-based approach provides a more robust and meaningful threshold. To do this, we computed key percentiles of the fan distribution: 
+```{r}
+percentiles <- quantile(yelp_data$fans, probs = c(0.50, 0.75, 0.90, 0.95), na.rm = TRUE)
+print(percentiles)
+```
+
+Next, we analyze the distribution of users across different percentile thresholds to understand the segmentation of fan counts.
+```{r}
+cumulative_percent <- c(50, 75, 90, 95) # Quantiles are percentages by definition
+
+percentile_table <- data.frame(
+  Percentile = c("50th (Median)", "75th", "90th", "95th"),
+  Fan_Count_Threshold = as.numeric(percentiles),
+  Cumulative_Percentage = paste0(cumulative_percent, "%")
+)
+
+kable(percentile_table, caption = "Percentile Thresholds and Cumulative User Percentage")
+```
+
+Lastly, we create a new column to classify users into different percentile groups based on their number of fans. This allows for a structured segmentation of users based on their influence.
+```{r}
+yelp_data$fan_category <- cut(
+  yelp_data$fans,
+  breaks = c(-Inf, percentiles[1], percentiles[2], percentiles[3], percentiles[4], Inf),
+  labels = c(1, 2, 3, 4,5), # Assigns numeric labels for each group
+  right = TRUE
+)
+
+yelp_data$fan_category <- as.numeric(as.character(yelp_data$fan_category))
+```
+
+In the column "categories", we are able to see that the column has characters in it. However, as we explore the data, this value may differ by row. For an overview of what the column "categories" consist of, we look at all the unique values.
+```{r}
+category_counts <- yelp_data %>%
+  separate_rows(categories, sep = ",\\s*") %>%  # Split by comma and optional space
+  count(categories, sort = TRUE)  # Count occurrences
+
+# Print the unique categories with their counts
+print(category_counts)
+```
+
+Evidently, this column has 1070 different values, with the one appearing most being "Restaurants." Hence, we decided to create two different data frames: (1) Restaurants, and (2) Businesses that are not restaurants. This is done to answer our research question later on.
+```{r}
+restaurant_data <- yelp_data %>%
+  filter(str_detect(categories, "Restaurant"))
+
+# Create a data set with rows that do NOT contain "Restaurant"
+non_restaurant_data <- yelp_data %>%
+  filter(!str_detect(categories, "Restaurant"))
+
+# Print the number of rows in each data set
+print(paste("Restaurant dataset rows:", nrow(restaurant_data)))
+print(paste("Non-Restaurant dataset rows:", nrow(non_restaurant_data)))
+```
