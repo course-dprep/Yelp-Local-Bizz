@@ -20,7 +20,7 @@ The data set has 14 columns, their meaning can be found in the following table:
 | fans | Numeric integer | The number of fans a user has. |
 | user_id| Character string | Unique, 22 character long ID that defines which user wrote the review. |
 | review_count_users | Numeric float | Number that represents the amount of reviews the user wrote in total. |
-| elite | Numeric integer | Long integer showing all the years a user was elite. If user never was elite it shows NA. |
+| elite | Numeric integer | Long integer showing all the years a user was elite. If a user was never an elite, it shows as NA. |
 | average_stars | Numeric float | Average rating of all reviews a user has given in the past. |
 | review_id | Character string | Unique, 22 character long ID that defines the review. |
 | business_id | Character string | Unique, 22 character long ID that defines the business for which the review was given. |
@@ -28,9 +28,9 @@ The data set has 14 columns, their meaning can be found in the following table:
 | categories | Array of strings | Array of strings which includes the categories a business has. |
 | attributes | Object | Business attributes to logic values. Please note: some attributes might be objects of attributes to logic values again. | 
 | name | Character string | Business' name. |
-| stars_business | Numeric float | Averge stars a business got from the reviews they have received. The amount of stars are rounded to half-stars. |
+| stars_business | Numeric float | Average stars a business got from the reviews they have received. The amount of stars are rounded to half-stars. |
 | review_count_business | Numeric integer | The amount of reviews a business has gotten in total. |
-| elite_binary | Binary | A binary telling whether the user has ever, at least once, had the elite status before (1) or not (0). |
+| elite_binary | Binary | A binary value indicating whether the user has ever, at least once, had the elite status before (1) or not (0). |
 
 ## Research Method
 The methods used in this project for answering our research questions are:
