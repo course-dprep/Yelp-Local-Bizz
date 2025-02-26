@@ -133,6 +133,13 @@ In this section, we will be answering the research questions stated in the begin
 
 
 ### Does the relationship differ when analyzing only restaurants compared to non-restaurant businesses?
+According to Table 2, the main effects of Elite Status and Business Category on user ratings are highly significant (p < 2×10^–16). This suggests that the average ratings are independently influenced by the type of business and the user's Elite status. Furthermore, the interaction between Elite Status and Business Category is also statistically significant (p = 7.65×10^–14), indicating that the effect of being an Elite user on ratings varies across various business categories. In conclusion, this implies that Elite users generally rate businesses differently from non-Elite users; however, the size of this difference varies for each category of business.
+
+![table 2](https://drive.google.com/uc?export=view&id=1Y7nQJgk5hn6Vg6A2iM912-JglsExYIRC)
+
+The visual representation of these relationships is illustrated in Figure 2. The significant interaction discovered in the ANOVA is further illustrated by the fact that Elite users generally provide higher ratings (as evidenced by the boxes and medians shifting upward compared to Non-Elite users). However, the size of this difference is not consistent across Restaurants and Non-Restaurants. Most ratings for both categories are centered around 4 to 5 stars, but there are still outliers at extremely low ratings, which serves as evidence that both Elite and Non-Elite users can also leave negative reviews. In summary, this is in line with the statistical findings that Elite Status and Business Category both influence average ratings, and they do so in a way that is dependent on both factors simultaneously.
+
+![figure 2](https://drive.google.com/uc?export=view&id=1uPc8EEprky5SqiV8sxIMJBLqq-51w3xK)
 
 
 ## Discussion
