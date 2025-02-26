@@ -135,7 +135,7 @@ First, descriptive statistics indicate that elite users tend to give higher rati
 
 The boxplot comparing average stars given to businesses (Image 1) shows that elite users' ratings are more tightly clustered around higher values, whereas non-elite users display more variability and a wider spread of ratings, which also includes more low ratings.
 
-** add boxplot here**
+![image boxplot](https://drive.google.com/file/d/1-tsfCG8u02hbgAlgWCj_Xx03HoMfs1JZ/view?usp=sharing)
 
 A two-sample t-test confirms that the difference in ratings between elite and non-elite users is statistically significant. The test gives us a t-value of -16.447 and a p-value of <2.2e-16, indicating that the likelihood of observing this difference is very low. The 95% confidence interval for the true difference in means ranges from -0.38 to -0.30, showing that elite users consistently rate businesses higher than non-elite users. However, the calculated Cohen's d is equal to 0.227, which is less than 0.5, indicates that although the difference is statistically significant, the practical difference is small, which means we speak of a small effect size.
 Overall, the analysis demonstrates a strong correlation between Yelp user type and the rating given to businesses. Elite users tend to provide higher and more consistent ratings, whereas non-elite users show more variability and are more likely to rate businesses lower. This significant difference suggests that user type is an important factor when interpreting business ratings on Yelp.
