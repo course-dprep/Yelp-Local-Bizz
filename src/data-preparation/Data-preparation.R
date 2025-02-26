@@ -1,3 +1,6 @@
+### Create percentiles
+percentiles <- quantile(yelp_data$fans, probs = c(0.50, 0.75, 0.90, 0.95), na.rm = TRUE)
+
 ### Ensuring elite_binary is a factor
 yelp_data$elite_binary <- as.factor(yelp_data$elite_binary)
 
