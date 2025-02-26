@@ -38,12 +38,27 @@ The methods used in this project for answering our research questions are:
 2. Moderated Multiple Linear Regression
 3. Two-way ANOVA
 
-For a more extensive explanation on how these methods will be used, we refer you to the report.
+For a more extensive explanation on how these methods will be used, please refer to the report.
 
 ## Preview of Findings 
-- Describe the gist of your findings (save the details for the final paper!)
-- How are the findings/end product of the project deployed?
-- Explain the relevance of these findings/product. 
+Generally, our analysis reveals a nuanced relationship between Yelp user type and business ratings. Using simple linear regression and a t-test, we found that elite users generally provide more favorable and consistent ratings than non-elite users. 
+
+![MainRQ](https://drive.google.com/uc?export=view&id=1pI-SSRZnNA5XE90XjbXUadjpHmzI5pln)
+___Plot 1__ visualizes the difference between the ratings given to businesses by elite vs non-elite users_
+
+A moderated multiple linear regression further shows that the number of fans an elite user has can influence this relationship—elite status tends to boost ratings, but this effect is moderated by the user's fanbase size. 
+
+![SQ1](https://drive.google.com/uc?export=view&id=1dgfQi71z18C6DoP19DOiJiInjHv_wuaT)
+___Plot 2__ visualizes the moderation effect of different fan percentiles on user status and ratings given to a business_
+
+Finally, a two-way ANOVA indicates that the effect of elite status on ratings varies by business category, with distinct patterns emerging when comparing restaurants to non-restaurant businesses.
+
+![SQ2](https://drive.google.com/uc?export=view&id=1uPc8EEprky5SqiV8sxIMJBLqq-51w3xK)
+___Plot 3__ visualizes the moderation effect of business category on user status and ratings given to a business_
+
+The end product of this project is deployed as an integrated analytical report and interactive dashboard, offering clear tables and visualizations that help businesses and platforms like Yelp interpret user feedback more effectively.
+
+For a more elaborate explanation of the results, please refer to the report. 
 
 ## Discussion
 ### Relevance of Findings
@@ -117,7 +132,7 @@ library(effsize)
 
 ## Running Instructions 
 For this workflow to properly work, the following steps should be followed:
-_Please note that step 2 and 3 take a lot of time and storage. Thses steps create the final data set used for this project and can be skipped since the final data set will also be directly loaded in step 4._
+_Please note that step 2 and 3 take a lot of time and storage. These steps create the final data set used for this project and can be skipped since the final data set will also be directly loaded in step 4._
 1. Run load-packages.R OR run the code in the Dependencies section.
 2. Run download-data.R (optional)
 3. Run data-cleaning.R (optional)
