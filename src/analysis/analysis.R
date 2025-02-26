@@ -189,4 +189,4 @@ ggplot(yelp_data, aes(x = elite_status, y = stars_users, fill = business_categor
        y = "User Ratings",
        fill = "Business Category") +
   scale_fill_manual(values = c("Non-Restaurant" = "lightblue", "Restaurant" = "lightpink")) +
-  theme_minimal()
+  theme_minimal() 
