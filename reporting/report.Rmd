@@ -105,7 +105,7 @@ The regression model is as follows: <br>
 
 #### Moderated Multiple Linear Regression
 
-![Image 3: Fans to user to average business rating](![My Image](https://drive.google.com/uc?export=view&id=1gVyv8kQ2KPHZLMp3QKPgNWXsK8H20sVl)
+![Image 3: Fans to user to average business rating](https://drive.google.com/uc?export=view&id=1gVyv8kQ2KPHZLMp3QKPgNWXsK8H20sVl)
 
 __Pure Moderators: Distribution of Number of Fans of Yelp Users__ <br>
 The number of fans is divided into four quartiles: the 50th, 75th, 90th, and 95th percentiles. The interaction between Yelp user type (Elite vs. Non-Elite) and fan count will be examined to determine whether a user's influence on a business’s average rating varies based on their fanbase size. Specifically, we aim to assess whether the effect of being an elite or non-elite user on ratings differs depending on the number of fans. For instance, an elite user in the 95th percentile of fan count may rate a business differently than one in the 75th percentile.
@@ -141,7 +141,10 @@ A two-sample t-test confirms that the difference in ratings between elite and no
 Overall, the analysis demonstrates a strong correlation between Yelp user type and the rating given to businesses. Elite users tend to provide higher and more consistent ratings, whereas non-elite users show more variability and are more likely to rate businesses lower. This significant difference suggests that user type is an important factor when interpreting business ratings on Yelp.
 
 
-#### Does the number of fans an elite Yelp user has moderate the relationship between user type and the rating a business receives from this user?
+#### Does the number of fans an elite Yelp user moderate the relationship between user type and the rating a business receives from this user?
+
+![Image 6: Moderation of Fan Percentile on Elite Status and User Ratings](https://drive.google.com/uc?export=view&id=1dgfQi71z18C6DoP19DOiJiInjHv_wuaT)
+
 The primary goal of this sub-question is to determine whether the number of fans an elite Yelp user has moderates the relationship between user type (elite vs. non-elite) and the rating a business receives from that user. The regression model that included an interaction term between elite status and fan category provided significant evidence of moderation (p-value < 2.2e-16), albeit with a relatively modest amount of variance explained (multiple R² around 0.013). Notably, the main effect for elite users (in the baseline fan group) showed that they tend to rate businesses approximately 0.502 stars higher than non-elite users. However, the negative coefficients on the interaction terms for higher fan categories suggest that this positive difference decreases — or even reverses — as the number of fans grows.
 
 *insert table of regression model summary*
@@ -159,10 +162,19 @@ According to Table 2, the main effects of Elite Status and Business Category on 
 
 The visual representation of these relationships is illustrated in Figure 2. The significant interaction discovered in the ANOVA is further illustrated by the fact that Elite users generally provide higher ratings (as evidenced by the boxes and medians shifting upward compared to Non-Elite users). However, the size of this difference is not consistent across Restaurants and Non-Restaurants. Most ratings for both categories are centered around 4 to 5 stars, but there are still outliers at extremely low ratings, which serves as evidence that both Elite and Non-Elite users can also leave negative reviews. In summary, this is in line with the statistical findings that Elite Status and Business Category both influence average ratings, and they do so in a way that is dependent on both factors simultaneously.
 
-![Image 6: User Ratings by Elite Status and Business Catagory](https://drive.google.com/uc?export=view&id=1uPc8EEprky5SqiV8sxIMJBLqq-51w3xK)
+![Image 7: User Ratings by Elite Status and Business Catagory](https://drive.google.com/uc?export=view&id=1uPc8EEprky5SqiV8sxIMJBLqq-51w3xK)
 
 
 ## Discussion
+### Conclusion
+Overall, these findings highlight the proposed hypothesis that elite status is indeed correlated with higher business ratings on Yelp, but its impact is far from uniform. While elite users generally tend to rate businesses more favorably than non-elite users, the magnitude of this effect is nuanced by additional factors.
+
+The number of fans an elite user has plays a meaningful moderating role in this relationship. Our analysis revealed that while elite users in the baseline fan category rate businesses about 0.502 stars higher than non-elite users, this positive effect diminishes—or even reverses—as the fan count increases. This variation across fan categories highlights the complexity of reviewer behavior in online communities, suggesting that not all elite users have the same influence on business ratings.
+
+Furthermore, the relationship between user type and ratings also differs when considering the type of business. When comparing restaurants to non-restaurant businesses, both the main effects and the interaction between elite status and business category were highly significant. This indicates that the impact of being an elite user on ratings is context-dependent, with the size of the effect varying across business types.
+
+For businesses, these insights are crucial for interpreting feedback from elite reviewers, especially since different elite segments—defined by fan count and business context—may be more critical or more generous than others. For platforms like Yelp, our results suggest that the "elite" label is not a monolithic category; rather, factors such as fan count and business category are important dimensions that help explain the observed variations in user ratings.
+
 ### Relevance of Findings
 This research holds significance for multiple stakeholders, including consumers, business owners, online review platforms, and the academic community.  
 
