@@ -81,29 +81,14 @@ print(cohens_d_1)
 # -----------------------
 
 # -----------------------
-# Step 1: Ensure that fan_category is a factor and create a new column to indicate the percentile per level
-# -----------------------
-yelp_data$fan_category <- cut(
-  yelp_data$fans,
-  breaks = c(-Inf, percentiles[1], percentiles[2], percentiles[3], percentiles[4], Inf),
-  labels = c(1, 2, 3, 4, 5),
-  right = TRUE
-)
-
-yelp_data$fan_percentile <- factor(
-  yelp_data$fan_category,
-  levels = c(1,2,3,4,5),
-  labels = c("50%", "75%", "90%", "95%", "100%"))
-
-# -----------------------
-# Step 2: Fit a moderation model
+# Step 1: Fit a moderation model
 #   this tests whether fan_category moderates the effect of elite_binary on stars_users
 # -----------------------
 model_moderation <- lm(stars_users ~ elite_binary * fan_category, data = yelp_data)
 summary(model_moderation)
 
 # -----------------------
-# Step 3: Create a data frame for predicted values
+# Step 2: Create a data frame for predicted values
 # -----------------------
 pred_data <- expand.grid(
   elite_binary = unique(yelp_data$elite_binary),
@@ -116,7 +101,7 @@ pred_data <- pred_data %>%
          elite_binary = factor(elite_binary, levels = c("Non-Elite", "Elite")))
 
 # -----------------------
-# Step 4: Plotting the moderation effect
+# Step 3: Plotting the moderation effect
 # -----------------------
 ggplot(pred_data, aes(x = fan_category, y = predicted_rating, 
                       color = elite_binary, group = elite_binary)) +
@@ -147,21 +132,13 @@ print(cohen_fan)
 # -----------------------
 
 # -----------------------
-# Step 1: Split restaurant vs non-restaurant in binary values
-# -----------------------
-yelp_data$business_binary <- ifelse(grepl("Restaurant", yelp_data$categories, ignore.case = TRUE), 1, 0)
-yelp_data$business_category <- ifelse(grepl("Restaurant", yelp_data$categories, ignore.case = TRUE), 
-                                      "Restaurant", "Non-Restaurant")
-yelp_data$business_category <- as.factor(yelp_data$business_category)
-
-# -----------------------
-# Step 2: ANOVA
+# Step 1: ANOVA
 # -----------------------
 anova_model <- aov(stars_users ~ elite_status * business_category, data = yelp_data)
 summary(anova_model)
 
 # -----------------------
-# Step 3: Cohen's d
+# Step 2: Cohen's d
 #   this shows the effect size
 # -----------------------
 cohen_restaurant <- lapply(split(yelp_data, yelp_data$business_category), 
@@ -170,7 +147,7 @@ cohen_restaurant <- lapply(split(yelp_data, yelp_data$business_category),
 print(cohen_restaurant)
 
 # -----------------------
-# Step 4: Plot user ratings by elite status and business category
+# Step 3: Plot user ratings by elite status and business category
 # -----------------------
 ggplot(yelp_data, aes(x = elite_status, y = stars_users, fill = business_category)) +
   geom_boxplot(alpha = 0.6) +
