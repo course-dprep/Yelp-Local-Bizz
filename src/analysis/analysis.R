@@ -16,6 +16,20 @@ elite_summary <- yelp_data %>%
 
 print(elite_summary) 
 
+# -----------------------
+# Summary statistics for stars_users by elite_binary
+# -----------------------
+elite_summary2 <- yelp_data %>%
+  group_by(elite_binary) %>%
+  summarise(
+    count = n(),
+    mean_elite_summary = mean(stars_users, na.rm = TRUE),
+    sd_elite_summary = sd(stars_users, na.rm = TRUE),
+    median_elite_summary = median(stars_users, na.rm = TRUE)
+  )
+
+print(elite_summary2) 
+
 
 # -----------------------
 # Visualizing the distributions
