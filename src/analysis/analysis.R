@@ -10,7 +10,7 @@ elite_summary <- yelp_data %>%
   summarise(
     count = n(),
     mean_elite_summary = mean(stars_business, na.rm = TRUE),
-    sd_elite_summary = mean(stars_business, na.rm = TRUE),
+    sd_elite_summary = sd(stars_business, na.rm = TRUE),
     median_elite_summary = median(stars_business, na.rm = TRUE)
   )
 
