@@ -90,7 +90,7 @@ df %>%
 ## Research Method
 ### Conceptual Model
 #### Simple Linear Regression (T-Test)
-![Image 2: User to Average Business Ratings](https://drive.google.com/uc?export=view&id=1AmZi4HaAxEskGQqP8rpHyE6an98zd5yW)
+![Image 2: User Type to Rating Given to a Business by User](https://drive.google.com/uc?export=view&id=1AmZi4HaAxEskGQqP8rpHyE6an98zd5yW)
 
 __Independent Variables: Type of Yelp Users__ <br>
 The independent variable classifies Yelp reviews into two categories: Elite and Non-Elite users. Its primary purpose is to analyze the impact of reviewer status on the average rating a business gets. Specifically, we seek to determine whether elite reviewers consistently assign different ratings compared to non-elite reviewers.
@@ -105,7 +105,7 @@ The regression model is as follows: <br>
 
 #### Moderated Multiple Linear Regression
 
-![Image 3: Fans to user to average business rating](https://drive.google.com/uc?export=view&id=1gVyv8kQ2KPHZLMp3QKPgNWXsK8H20sVl)
+![Image 3: Fans to User Type to Rating Given to a Business by User](https://drive.google.com/uc?export=view&id=1gVyv8kQ2KPHZLMp3QKPgNWXsK8H20sVl)
 
 __Pure Moderators: Distribution of Number of Fans of Yelp Users__ <br>
 The number of fans is divided into four quartiles: the 50th, 75th, 90th, and 95th percentiles. The interaction between Yelp user type (Elite vs. Non-Elite) and fan count will be examined to determine whether a user's influence on a business’s average rating varies based on their fanbase size. Specifically, we aim to assess whether the effect of being an elite or non-elite user on ratings differs depending on the number of fans. For instance, an elite user in the 95th percentile of fan count may rate a business differently than one in the 75th percentile.
@@ -117,7 +117,7 @@ The regression model is as follows: <br>
 
 #### Two-way ANOVA
 
-![Image 4: Category and user to average business ratings](https://drive.google.com/uc?export=view&id=1DKyy6X8WOftseYlSrMS-mKP43bv24VsG)
+![Image 4: Category and User Type to Rating Given to a Business by User](https://drive.google.com/uc?export=view&id=1DKyy6X8WOftseYlSrMS-mKP43bv24VsG)
 
 __Quasi-Moderators: Category of Business__ <br>
 We have categorized businesses into two groups: restaurants and non-restaurants. To assess whether the impact of Yelp user type (Elite vs. Non-Elite) on average business ratings vary by the category of the business, we will analyze their interaction. Specifically, we aim to determine whether elite and non-elite users tend to assign higher or lower ratings depending on whether a business is a restaurant or not. This quasi-moderator helps evaluate whether the business category influences the relationship between user type and average rating.
