@@ -125,9 +125,15 @@ We have categorized businesses into two groups: restaurants and non-restaurants.
 In order to determine whether the impact of user type on business ratings varies between restaurants and non-restaurant businesses, a two-way ANOVA will be applied. This method is widely used in applied statistics due to its simplicity and robustness in handling parametric tests [(Luepsen, 2023)](https://doi.org/10.1080/03610918.2020.1869983). Given that two-way ANOVA effectively compares mean differences across categorical variables, it is ideal for analyzing how business category (restaurant vs. non-restaurant) moderates the relationship between Yelp user type (Elite vs. Non-Elite) and average business rating. Since the business category is a quasi-moderator, it may have both a direct effect on ratings and an interaction effect with user type. Two-way ANOVA allows us to test for these effects by examining whether Elite and Non-Elite users rate restaurants differently than non-restaurants. This method helps determine if the impact of reviewer status on ratings varies depending on the type of business being reviewed.
 
 ## Results 
-- Describe the gist of your findings (save the details for the final paper!)
-- How are the findings/end product of the project deployed?
-- Explain the relevance of these findings/product. 
+In this section, we will be answering the research questions stated in the beginning of this paper. 
+
+### Is there a correlation between Yelp user type and the rating given to a business?
+
+### Does the number of fans an elite Yelp user has moderate the relationship between user type and the rating a business receives from this user?
+
+
+### Does the relationship differ when analyzing only restaurants compared to non-restaurant businesses?
+
 
 ## Discussion
 ### Relevance of Findings
