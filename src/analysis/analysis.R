@@ -20,18 +20,8 @@ print(elite_summary)
 # -----------------------
 # Visualizing the distributions
 # -----------------------
-# Step 1: Ensuring elite_binary is a factor
 # -----------------------
-yelp_data$elite_binary <- as.factor(yelp_data$elite_binary)
-
-# -----------------------
-# Step 2: Creating a new column to change label from binary numbers to elite vs non-elite
-# -----------------------
-yelp_data$elite_status <- ifelse(yelp_data$elite_binary == "1", "Elite", "Non-Elite")
-yelp_data$elite_status <- as.factor(yelp_data$elite_status)
-
-# -----------------------
-# Step 3: Plot average_stars (average stars (cumulative) given to businesses) to elite_status
+# Step 1: Plot average_stars (average stars (cumulative) given to businesses) to elite_status
 #   this shows comparison of average_stars by elite_status
 # -----------------------
 ggplot(yelp_data, aes(x = elite_status, y = average_stars, fill = elite_status)) +
@@ -44,7 +34,7 @@ ggplot(yelp_data, aes(x = elite_status, y = average_stars, fill = elite_status))
   theme(legend.position = "none")
 
 # -----------------------
-# Step 4: Plot density stars_users (star given to business) to elite_status
+# Step 2: Plot density stars_users (star given to business) to elite_status
 #   this shows comparison of stars_users by elite_status
 # -----------------------
 ggplot(yelp_data, aes(x = stars_users, fill = elite_status)) +
